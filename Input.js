@@ -14,7 +14,11 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 const Input = ({onChange}) => {
   return (
     <>
-      <TextInput style={styles.input} onChangeText={(text) => onChange(text)} />
+      <TextInput
+        keyboardType={'numeric'}
+        style={styles.input}
+        onChangeText={(text) => onChange(text)}
+      />
     </>
   );
 };

@@ -30,6 +30,7 @@ import {
 import FunctionsExample from './FunctionsExample';
 import ClassExample from './ClassExample';
 import ForwardRefExample from './ForwardRefExample';
+import ExampleScrollView from './ExampleScrollView';
 
 const App: () => React$Node = () => {
   return (
@@ -43,11 +44,8 @@ const App: () => React$Node = () => {
         )}
         <View style={styles.body}>
           <View style={styles.sectionContainer}>
-            {/* <Text style={styles.sectionTitle}>Component Interaction</Text> */}
+            <ForwardRefExample />
           </View>
-          {/* <FunctionsExample /> */}
-          <ForwardRefExample />
-          {/* <ClassExample /> */}
         </View>
       </SafeAreaView>
     </>

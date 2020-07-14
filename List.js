@@ -16,19 +16,19 @@ import {
   StatusBar,
   FlatList,
 } from 'react-native';
-import withRef from './withInputLimit';
+// import withRef from './withInputLimit';
 
 import Item from './Item';
 
-const data = [...Array(100).keys()];
+const data = [...Array(3000).keys()];
 
 const List = forwardRef((props, ref) => {
   return (
     <FlatList
       ref={ref}
       data={data}
-      renderItem={({ item }) => <Item item={item} />}
-      initialNumToRender={data.length}
+      renderItem={({item}) => <Item item={item} />}
+      initialNumToRender={data.length / 100}
       keyExtractor={(item) => item}
     />
   );
