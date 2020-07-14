@@ -32,7 +32,7 @@ const ForwardRefExample = () => {
   return (
     <>
       <Input onChange={onInputChange} />
-      <ListContainer innerRef={listRef} />
+      <List ref={listRef} />
     </>
   );
 };

@@ -46,8 +46,8 @@ const App: () => React$Node = () => {
             {/* <Text style={styles.sectionTitle}>Component Interaction</Text> */}
           </View>
           {/* <FunctionsExample /> */}
-          {/* <ForwardRefExample /> */}
-          <ClassExample />
+          <ForwardRefExample />
+          {/* <ClassExample /> */}
         </View>
       </SafeAreaView>
     </>
