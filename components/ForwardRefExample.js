@@ -20,7 +20,7 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Item from './Item';
 import Input from './Input';
-import ListContainer from './ListContainer';
+import List from './List';
 
 const ForwardRefExample = () => {
   const listRef = useRef(null);

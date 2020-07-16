@@ -9,7 +9,7 @@ if (__DEV__) {
   import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
 }
 
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -27,29 +27,36 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import FunctionsExample from './FunctionsExample';
-import ClassExample from './ClassExample';
-import ForwardRefExample from './ForwardRefExample';
+import FunctionsExample from './components/FunctionsExample';
+import ClassExample from './components/ClassExample';
+import ForwardRefExample from './components/ForwardRefExample';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import {reducers as rootReducer} from './reducers';
+import Reactotron from './ReactotronConfig';
+import ConnectedInput from './components/ConnectedInput';
+import ConnectedList from './components/ConnectedList';
+
+const store = createStore(rootReducer, Reactotron.createEnhancer());
 
 const App: () => React$Node = () => {
+  const listRef = useRef(null);
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        {global.HermesInternal == null ? null : (
-          <View style={styles.engine}>
-            <Text style={styles.footer}>Engine: Hermes</Text>
+      <Provider store={store}>
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView>
+          {global.HermesInternal == null ? null : (
+            <View style={styles.engine}>
+              <Text style={styles.footer}>Engine: Hermes</Text>
+            </View>
+          )}
+          <View style={styles.body}>
+            <ConnectedInput />
+            <ConnectedList listRef={listRef} />
           </View>
-        )}
-        <View style={styles.body}>
-          <View style={styles.sectionContainer}>
-            {/* <Text style={styles.sectionTitle}>Component Interaction</Text> */}
-          </View>
-          {/* <FunctionsExample /> */}
-          <ForwardRefExample />
-          {/* <ClassExample /> */}
-        </View>
-      </SafeAreaView>
+        </SafeAreaView>
+      </Provider>
     </>
   );
 };
