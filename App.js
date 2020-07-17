@@ -32,6 +32,11 @@ import ClassExample from './ClassExample';
 import ForwardRefExample from './ForwardRefExample';
 
 const App: () => React$Node = () => {
+  const cref = React.useRef();
+  React.useEffect(() => {
+    cref.current.doSomething();
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -47,7 +52,7 @@ const App: () => React$Node = () => {
           </View>
           {/* <FunctionsExample /> */}
           {/* <ForwardRefExample /> */}
-          <ClassExample />
+          <ClassExample ref={cref} />
         </View>
       </SafeAreaView>
     </>
