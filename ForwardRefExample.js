@@ -7,20 +7,12 @@
  */
 
 import React, {useRef} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  FlatList,
-} from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Item from './Item';
 import Input from './Input';
-import ListContainer from './ListContainer';
+import List from './List';
+import withInputLimit from './withInputLimit';
+
+const LimitedInput = withInputLimit(Input);
 
 const ForwardRefExample = () => {
   const listRef = useRef(null);
@@ -31,14 +23,10 @@ const ForwardRefExample = () => {
 
   return (
     <>
-      <Input onChange={onInputChange} />
+      <LimitedInput limit={10} onChange={onInputChange} />
       <List ref={listRef} />
     </>
   );
 };
-
-const styles = StyleSheet.create({
-
-});
 
 export default ForwardRefExample;

@@ -16,7 +16,6 @@ import {
   StatusBar,
   FlatList,
 } from 'react-native';
-import withRef from './withInputLimit';
 
 import Item from './Item';
 

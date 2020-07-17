@@ -19,6 +19,9 @@ import {
 
 import Item from './Item';
 import Input from './Input';
+import withTitle from './withTitle';
+
+const ListWithTitle = withTitle(FlatList);
 
 const data = [...Array(100).keys()];
 
@@ -33,7 +36,7 @@ const FunctionsExample = () => {
     <>
       <View>
         <Input onChange={onInputChange} />
-        <FlatList
+        <ListWithTitle
           ref={listRef}
           data={data}
           renderItem={({item}) => <Item item={item} />}
