@@ -32,10 +32,6 @@ import ClassExample from './ClassExample';
 import ForwardRefExample from './ForwardRefExample';
 
 const App: () => React$Node = () => {
-  const cref = React.useRef();
-  React.useEffect(() => {
-    cref.current.doSomething();
-  }, []);
 
   return (
     <>
@@ -47,12 +43,7 @@ const App: () => React$Node = () => {
           </View>
         )}
         <View style={styles.body}>
-          <View style={styles.sectionContainer}>
-            {/* <Text style={styles.sectionTitle}>Component Interaction</Text> */}
-          </View>
-          {/* <FunctionsExample /> */}
-          {/* <ForwardRefExample /> */}
-          <ClassExample ref={cref} />
+          <ClassExample />
         </View>
       </SafeAreaView>
     </>
